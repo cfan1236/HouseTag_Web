@@ -1,0 +1,102 @@
+﻿.layui-field-title {
+    margin-top: 8px;
+}
+/*城市背景*/
+.city-bg {
+    position: relative;
+    border-radius: 5px;
+    padding: 6px;
+    line-height: 20px;
+    text-align: center;
+    background-color: #ebcf82 !important;
+    color: #fff;
+    white-space: nowrap; /*规定段落中的文本不进行换行*/
+}
+/*城市内容*/
+.city-content {
+    width: 100%;
+    overflow-x: auto;
+}
+/*楼盘背景*/
+.project-bg {
+    position: relative;
+    border-radius: 5px;
+    padding: 6px;
+    line-height: 15px;
+    background-color: #b1e9ff;
+    white-space: nowrap; /*规定段落中的文本不进行换行*/
+}
+/*标签背景*/
+.tag-bg {
+    position: relative;
+    border-radius: 5px;
+    padding: 4px;
+    line-height: 20px;
+    border: 1px solid #e6e6e6;
+    background-color: #fbfbfb;
+    height: 150px;
+}
+/*评论背景*/
+.comment-bg {
+    position: relative;
+    border-radius: 5px;
+    padding: 4px;
+    line-height: 20px;
+    border: 1px solid #e6e6e6;
+    background-color: #fbfbfb;
+    height: 250px;
+}
+/*评论标签*/
+.comment_tag {
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+    color: red;
+    font-size: 17px;
+}
+/*标签显示样式*/
+.el-tag {
+    /*background-color: rgba(64,158,255,.1);*/
+    display: inline-block;
+    padding: 0 3px;
+    height: 32px;
+    line-height: 30px;
+    margin-top: 3px;
+    font-size: 13px;
+    /*color: #409eff;*/
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: 1px solid rgba(64,158,255,.2);
+    white-space: nowrap;
+    background-color: rgba(230,162,60,.1);
+    border-color: rgba(230,162,60,.2);
+    color: #e6a23c;
+    cursor: pointer;
+}
+/*搜索提示*/
+.search_tips {
+    float: right;
+    position: absolute;
+    right: 15px;
+    margin-top: 4px;
+    display: none;
+}
+    /*搜索连接按钮*/
+    .search_tips a {
+        text-decoration: underline;
+        color: blue;
+    }
+/*搜索评论*/
+.search_comment {
+    margin-top: 10px;
+    display: none;
+    text-align: center;
+}
+
+.tag_tips {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: red;
+    font-size: 17px;
+}

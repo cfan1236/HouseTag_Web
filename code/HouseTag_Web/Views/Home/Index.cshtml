@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <title>楼盘评论标签</title>
+    <link href="~/layui/css/layui.css" rel="stylesheet" />
+    <link href="~/css/index.css" rel="stylesheet" />
+
+</head>
+<body>
+    <form class="layui-form layui-form-pane1" action="" lay-filter="first">
+        <div class="layui-container">
+            <!--城市-->
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend>城市</legend>
+            </fieldset>
+            <div class="city-bg">
+
+                <span style="float:right;position:absolute;margin-top:10px;right:0;">
+                    >>
+                </span>
+
+                <div class="city-content" id="city_content">
+                    @{
+                        var count = 0;
+                        var checkedstr = "";
+                        foreach (var item in ViewData["city"] as List<string>)
+                        {
+                            checkedstr = count == 0 ? "checked" : "";
+
+                            <input type="radio" value="@count" name="city" title="@item.ToString().Split(',')[0]" @checkedstr>
+                            count++;
+                        }
+                    }
+                </div>
+            </div>
+            <!--楼盘搜索-->
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend>楼盘</legend>
+            </fieldset>
+            <div class="project-bg">
+
+                <div class="layui-col-xs10 layui-col-md4">
+                    <input type="text" id="pName" name="pName" autocomplete="off" placeholder="输入楼盘或地址"
+                           class="layui-input" />
+                </div>
+                <button id="btn_start" class="layui-btn" style="margin-left:7px;padding: 0px 11px" onClick="start();return false;">
+                    开始
+                </button>
+                <br />
+            </div>
+            <!--楼盘信息-->
+            <div style="margin-top:8px">
+                <div>
+                    <strong><span style="font-size:15px;color:#1E9FFF;" id="p_name"></span></strong>
+                </div>
+                <div style="margin-top:3px" id="p_info">
+                    <span style="color:#1E9FFF;" id="p_address"></span>
+                    <span style="color:#1E9FFF; float:right" id="p_price"></span>
+                </div>
+            </div>
+
+            <!--标签-->
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend>标签</legend>
+            </fieldset>
+            <div class="tag-bg" id="tag_tb">
+                <div style="overflow-y: auto;height:100%;" id="tag">
+                </div>
+            </div>
+            <div>
+                <strong><span style="font-size:15px;color:#1E9FFF;" id="p_name"></span></strong>
+            </div>
+            <!--搜索-->
+            <div id="search_tips" class="search_tips">
+                <a id="search_a" href="javascript:void(0);" onClick="showSearch()">评论搜索</a>
+            </div>
+            <br />
+            <div id="search_c" class="search_comment">
+                <input id="search_comment" type="text" autocomplete="off" placeholder="搜索评论内容"
+                       class="layui-input" style="display:inline-block" />
+                <button class="layui-btn layui-btn-normal" style="margin-left:5px;padding: 0px 11px" onClick=" searchComment();return false;">
+                    搜索
+                </button>
+                <br />
+            </div>
+            <!--评论-->
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend>评论</legend>
+            </fieldset>
+            <span class="comment_tag" id="comment_tag"></span>
+            <div class="comment-bg" id="tag_tb">
+                <div style="overflow-y: auto;height:100%;" id="comment">
+                </div>
+            </div>
+        
+            <div style="margin:10px 0px"><i>*所有数据均来自安居客和房天下完全公开的新房楼盘及评论数据</i></div>
+            <div style="margin:10px 0px"><i>*评论数据均已过滤代抢、楼盘置业顾问等(不保证100%过滤)</i></div>
+            <hr style="border:1px dashed #65a7ec; height:0px">
+            <div style="margin:10px 0px">
+                <i>
+                    *意见反馈<br> Mail:<a href="mailto:rui1236@hotmail.com" style="color:blue">
+                        rui1236@hotmail.com
+                    </a>Github: <a href="https://github.com/cfan1236/HouseTag_Web" target="_blank" style="color:blue"> HouseTag_Web</a>
+                </i>
+            </div>
+
+        </div>
+    </form>
+    <script src="~/layui/layui.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/js/index.js"></script>
+    <script>
+        layui.use('form', function () {
+            var form = layui.form;
+        });
+        //使用 yutons_sug 下拉列表组件
+        layui.config({
+            base: '/layui/'
+        }).use(['yutons_sug'], function () {
+            var yutons_sug = layui.yutons_sug;
+            sessionStorage.setItem("url", "/home/ProjectSearch");
+            yutons_sug.render({
+                id: "pName", 
+                type: 'sug', 
+                url: sessionStorage.getItem("url")
+            });
+        });
+    </script>
+
+</body>
+</html>
